@@ -3,7 +3,7 @@ export const site = {
   name: "Tam Nguyen",
   fullName: "Duc Tam Nguyen",
   description:
-    "Tam Nguyen is a Chicago-based UIC computer science student building reliable data pipelines, machine learning systems, and intelligent applications.",
+    "Tam Nguyen’s personal portfolio: UIC computer science student, teaching assistant, and aspiring data and machine learning engineer.",
   url: resolveSiteUrl(),
   email: "ductam.nguyen.201005@gmail.com",
   linkedin: "https://www.linkedin.com/in/ductam05/",
@@ -13,15 +13,13 @@ export const site = {
   education: "Bachelor of Science in Computer Science",
   minor: "Mathematics",
   graduation: "May 2027",
-  positioning: {
-    roles: ["Data Engineer", "ML Engineer"],
-    summary:
-      "Building reliable data pipelines and production-ready machine learning systems.",
-    proofPoints: [
-      { value: "76", label: "CI data-quality tests" },
-      { value: "12.5 ms", label: "local API p95 · 5 clients" },
-      { value: "2", label: "industry internships" },
-    ],
+  introduction: {
+    interests:
+      "I like working through the practical parts of data and machine learning: making a pipeline dependable, comparing models, and turning an experiment into something usable.",
+    opportunities:
+      "I’m looking for internships and early-career opportunities in data engineering, machine learning, and AI.",
+    experience:
+      "Two industry internships at Viettel · Teaching assistant for CS 151 & CS 341",
   },
   educationDates: "August 2023 – May 2027",
   coursework: [
@@ -61,7 +59,7 @@ export const capabilities = [
     ],
   },
   {
-    title: "Cloud & delivery",
+    title: "Cloud & DevOps",
     description: "Packaging, shipping, and observing systems.",
     tools: [
       "Google Cloud Run",
@@ -82,6 +80,14 @@ export const capabilities = [
 export const experience = [
   {
     company: "Viettel AI",
+    organization: "Viettel Group",
+    location: "Hanoi, Vietnam",
+    kind: "internship",
+    resumeBullets: [
+      "Implemented and evaluated face recognition pipelines using ResNet and Vision Transformer (ViT) backbones in Python, benchmarking recognition accuracy and inference latency to assess model performance and deployment trade-offs.",
+      "Analyzed external NIST FRTE 1:N identification benchmarks across galleries of up to 1.6 million identities, examining false positive and false negative identification rates (FPIR/FNIR) to evaluate accuracy and scalability.",
+      "Synthesized experimental findings, technical benchmarks, and implementation constraints into comparative reports supporting internal computer vision research.",
+    ],
     role: "Computer Vision / AI Intern",
     field: "Computer vision",
     dates: "May 2025 – August 2025",
@@ -97,6 +103,14 @@ export const experience = [
   },
   {
     company: "Viettel High Tech",
+    organization: "Viettel Group",
+    location: "Hanoi, Vietnam",
+    kind: "internship",
+    resumeBullets: [
+      "Developed customer segmentation and propensity models using Python and SQL on multi-million-row telecom datasets, improving campaign targeting accuracy by 15%.",
+      "Built and automated data cleaning, transformation, and feature engineering workflows using Python and SQL, reducing recurring reporting time by 30%.",
+      "Conducted exploratory data analysis and data quality checks to identify customer behavior patterns, validate model inputs, and support data-driven marketing decisions.",
+    ],
     role: "Data Science Intern",
     field: "Applied data science",
     dates: "May 2024 – August 2024",
@@ -112,6 +126,12 @@ export const experience = [
   },
   {
     company: "University of Illinois Chicago",
+    organization: "",
+    location: "Chicago, IL",
+    kind: "teaching",
+    resumeBullets: [
+      "Supported more than 100 students in discrete mathematics and programming language concepts through office hours, technical instruction, assignment grading, and collaboration with faculty.",
+    ],
     role: "Undergraduate Teaching Assistant",
     field: "CS 151 & CS 341",
     dates: "August 2024 – Present",

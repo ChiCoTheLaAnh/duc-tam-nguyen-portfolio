@@ -12,18 +12,14 @@ export default function Contact() {
   const configured = site.email || site.linkedin || site.github;
   return (
     <div className="container page-shell contact-page">
-      <PageIntro
-        label="LET’S CONNECT"
-        title="There’s always a next good problem."
-      >
-        I’m interested in opportunities where I can build dependable data
-        systems, learn from thoughtful engineers, and turn models into useful
-        applications.
+      <PageIntro label="LET’S CONNECT" title="Let’s talk.">
+        {site.introduction.opportunities} You can also reach out with a question
+        about one of my projects or just to say hello.
       </PageIntro>
       <div className="contact-panel">
         <div>
-          <p className="eyebrow">START A CONVERSATION</p>
-          <h2>Talk data. Talk engineering.</h2>
+          <p className="eyebrow">FIND ME HERE</p>
+          <h2>Email is the easiest way to reach me.</h2>
           {configured ? (
             <SocialLinks />
           ) : (

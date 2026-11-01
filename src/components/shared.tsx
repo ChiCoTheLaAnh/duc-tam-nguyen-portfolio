@@ -31,13 +31,12 @@ export function ContactCTA() {
   return (
     <section className="contact-band container">
       <div>
-        <p className="eyebrow">LET’S BUILD SOMETHING USEFUL</p>
-        <h2>
-          Good systems start with
-          <br />a good conversation.
-        </h2>
+        <p className="eyebrow">SAY HELLO</p>
+        <h2>Have a question or an opportunity?</h2>
         <p>
-          Interested in data, machine learning, or the engineering in between?
+          I’m looking for opportunities to learn and contribute on data, ML, and
+          AI teams. If that sounds like a fit—or you want to talk about a
+          project—I’d be happy to hear from you.
         </p>
       </div>
       <a href={`mailto:${site.email}`} className="button dark">
@@ -71,7 +70,7 @@ export function Footer() {
           {site.name}
           <span>.</span>
         </Link>
-        <p>Thoughtful data. Dependable engineering.</p>
+        <p>Computer Science at UIC · Chicago, IL</p>
       </div>
       <div className="footer-right">
         <SocialLinks compact />

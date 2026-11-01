@@ -19,15 +19,15 @@ export function ProjectCard({ project: p }: { project: Project }) {
           <>
             <dl className="project-answers">
               <div>
-                <dt>Problem</dt>
+                <dt>The idea</dt>
                 <dd>{proof.problem}</dd>
               </div>
               <div>
-                <dt>Built</dt>
+                <dt>My work</dt>
                 <dd>{proof.built}</dd>
               </div>
               <div className="answer-result">
-                <dt>Result</dt>
+                <dt>Results</dt>
                 <dd>{proof.result}</dd>
               </div>
             </dl>
@@ -46,7 +46,7 @@ export function ProjectCard({ project: p }: { project: Project }) {
           </Link>
         </div>
         <div className="card-evidence-link">
-          <span>Evidence</span>
+          <span>Sources</span>
           <a
             href={proof?.sources[0]?.href || p.github}
             target="_blank"

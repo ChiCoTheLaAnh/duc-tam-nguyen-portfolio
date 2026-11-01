@@ -11,11 +11,12 @@ export default function Experience() {
     <>
       <div className="container page-shell">
         <PageIntro
-          label="EXPERIENCE & RESEARCH"
-          title="Practice makes perspective."
+          label="INTERNSHIPS & TEACHING"
+          title="What I’ve learned along the way."
         >
-          Applied machine learning, thoughtful experimentation, and the ability
-          to explain the reasoning behind the work.
+          Two internships at Viettel gave me experience with telecom data and
+          computer vision. At UIC, I also help students work through discrete
+          math and programming language concepts.
         </PageIntro>
         <div className="experience-full">
           {experience.map((e, i) => (

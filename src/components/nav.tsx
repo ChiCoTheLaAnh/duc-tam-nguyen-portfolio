@@ -36,7 +36,8 @@ export function Nav() {
           onClick={() => setOpen(false)}
           aria-label={`${site.name} home`}
         >
-          tn<span>.</span>
+          {site.name}
+          <span>.</span>
         </Link>
         <button
           ref={toggleRef}

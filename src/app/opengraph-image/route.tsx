@@ -18,19 +18,19 @@ export function GET() {
       }}
     >
       <div style={{ display: "flex", fontSize: 26 }}>
-        TAM NGUYEN / DATA · ML · AI ENGINEERING
+        TAM NGUYEN / CS STUDENT AT UIC
       </div>
       <div
         style={{
           display: "flex",
-          fontSize: 74,
+          fontSize: 70,
           letterSpacing: -4,
           lineHeight: 1.05,
         }}
       >
-        Reliable data.
+        Hi, I’m Tam.
         <br />
-        Intelligent applications.
+        Here’s what I’m building.
       </div>
       <div style={{ display: "flex", fontSize: 24, color: "#52645c" }}>
         Chicago, IL · University of Illinois Chicago · May 2027

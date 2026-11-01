@@ -9,9 +9,9 @@ export const metadata = pageMetadata(
 export default function Projects() {
   return (
     <div className="container page-shell">
-      <PageIntro label="THE PROJECT COLLECTION" title="Ideas into systems.">
-        A closer look at the problems, decisions, and trade-offs behind my work.
-        From the first data point to the serving layer.
+      <PageIntro label="MY PROJECTS" title="Built, tested, and still learning.">
+        Projects in data engineering, machine learning, and computer vision.
+        Here’s what I tried, how I tested it, and what I learned.
       </PageIntro>
       <ProjectGallery />
     </div>

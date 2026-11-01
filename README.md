@@ -38,7 +38,7 @@ src/app/                    Routes, global styles, robots, sitemap
   projects/[slug]/          Source-grounded engineering case studies
   opengraph-image/route.tsx  Generated social-preview image
   about/ experience/        Education, background, dated experience
-  contact/ resume/          Direct contact and optional PDF download
+  contact/ resume/          Direct contact and full HTML resume
 src/components/             Navigation, evidence charts, SVG sketches,
                             cards, architecture, tables, decision callouts
 src/content/site.ts         Identity, contacts, education, skills, experience
@@ -73,11 +73,11 @@ QuickScout’s 76 current CI tests are separate from the 74-test historical host
 
 ## Resume integration
 
-The current public resume is at `public/resume.pdf`. To update it, review the new PDF for private contact information, replace this file, then rebuild. The `/resume` page checks for that file at build time and exposes open/download actions only when it exists. Downloads use `Tam-Nguyen-Resume.pdf`. Missing files produce a useful experience/projects fallback. Do not generate a replacement document.
+The current public resume is at `public/resume.pdf`. To update it, review the new PDF for private contact information, replace this file, then rebuild. The `/resume` page always renders a complete, responsive HTML resume with section navigation and print styles. Its education, experience, skills and teaching content lives in `src/content/site.ts`; resume project bullets live in `src/content/resume.ts`. Keep both HTML content and the PDF aligned when updating your resume. The optional PDF download appears only when the asset exists at build time and uses `Tam-Nguyen-Resume.pdf`. Missing PDFs do not hide any HTML resume content. Do not generate a replacement document.
 
 ## Visual system and accessibility
 
-Warm ivory, forest ink, and teal support editorial typography and custom system illustrations. The homepage leads with roles, credentials, scoped proof points, and direct project/resume actions. Featured projects immediately answer problem, build, result, and evidence. The former interactive hero was removed; full technical capabilities now live on About. Architecture illustrations remain conceptual; evidence charts are redrawn from pinned records, not new experiments. Project cards have restrained hover movement, and sections translate slightly into place without making text transparent. Motion stops for `prefers-reduced-motion`. Content remains readable without JavaScript; interactive filtering and navigation use small client components.
+Warm ivory, forest ink, and teal support editorial typography and custom system illustrations. The homepage introduces Tam as a UIC CS student: studies, practical interests, opportunities sought, and direct project/HTML-resume actions. First-person writing and quieter framing keep the site personal. Featured projects immediately answer problem, build, result, and evidence. The former interactive hero was removed; full technical capabilities now live on About. Architecture illustrations remain conceptual; evidence charts are redrawn from pinned records, not new experiments. Project cards have restrained hover movement, and sections translate slightly into place without making text transparent. Motion stops for `prefers-reduced-motion`. Content remains readable without JavaScript; interactive filtering and navigation use small client components.
 
 Semantic headings, focus outlines, a skip link, Escape-to-close mobile navigation, labeled figures, real tables, native `details`, and scrollable table regions support keyboard use. Manrope is bundled through `next/font/local` from `@fontsource-variable/manrope` (OFL-1.1; license distributed with the package); no external font host is contacted at runtime.
 

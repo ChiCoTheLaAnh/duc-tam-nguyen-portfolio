@@ -49,3 +49,7 @@ Source commit: `e6b656253e4c8636f89b73d26fd43edb6a48e13f` in QuickScoutFootball.
 | `public/evidence/quickscout-retry-recovery.txt`   | `docs/airflow/evidence/retry-attempt-2.log`  | `5ca1e99e2c760bc971240072ae7d9f7e5e8a62e642cfe0758c8524eed015efbc` |
 
 Charts use recorded tables in the pinned recommendation README and tracking report listed above. The tracking repository contains a figure manifest but no checked-in frame images; no synthetic tracking screenshots were substituted. The underlying experiments and data pipelines were not rerun as part of this website update.
+
+## Native HTML resume and personal introduction
+
+The resume route now presents all supplied non-private resume sections as HTML, independently of PDF availability. Education, internship and teaching bullets, coursework and skills remain centralized in `src/content/site.ts`; the three resume project entries are in `src/content/resume.ts`. Local benchmark and external NIST qualifications remain explicit. The public PDF is unchanged. The personal introduction uses confirmed studies and engineering interests; no hobbies or additional achievements were invented.

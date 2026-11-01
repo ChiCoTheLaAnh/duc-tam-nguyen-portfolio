@@ -1,60 +1,40 @@
 import Link from "next/link";
-import { ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content/projects";
 import { experience, site } from "@/content/site";
 import { ProjectCard } from "@/components/project-card";
 import { ContactCTA, SocialLinks } from "@/components/shared";
 import { pageMetadata } from "@/lib/metadata";
-import { hasResume } from "@/lib/resume";
 export const metadata = pageMetadata(
-  "Data Engineer & ML Engineer",
+  "CS Student & Aspiring Engineer",
   site.description,
   "/",
 );
 export default function Home() {
   return (
     <>
-      <section className="container hero hero-focused">
+      <section className="container hero hero-personal">
         <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="status-dot" /> TAM NGUYEN{" "}
-            <span className="eyebrow-divider">/</span> {site.location}
-          </p>
-          <h1 className="hero-role">
-            {site.positioning.roles[0]} <br />
-            <span>&amp; {site.positioning.roles[1]}</span>
+          <p className="eyebrow">{site.location} · UIC ’27</p>
+          <h1>
+            Hi, I’m <span>{site.name}.</span>
           </h1>
-          <p className="hero-description">{site.positioning.summary}</p>
-          <p className="hero-detail hero-credentials">
-            Computer Science @ UIC · Graduating {site.graduation}
+          <p className="personal-lead">
+            I’m studying Computer Science at the University of Illinois Chicago,
+            with a minor in {site.minor}. I graduate in {site.graduation}.
           </p>
-          <ul className="hero-proof" aria-label="Engineering highlights">
-            {site.positioning.proofPoints.map((point) => (
-              <li key={point.label}>
-                <strong>{point.value}</strong>
-                <span>{point.label}</span>
-              </li>
-            ))}
-          </ul>
+          <p className="personal-intro">{site.introduction.interests}</p>
+          <p className="opportunity-note">{site.introduction.opportunities}</p>
           <div className="hero-actions">
             <Link href="/projects" className="button dark">
-              View Projects <ArrowUpRight size={18} />
+              View Projects <ArrowUpRight size={17} />
             </Link>
-            {hasResume() ? (
-              <a
-                href="/resume.pdf"
-                download="Tam-Nguyen-Resume.pdf"
-                className="button outline"
-              >
-                Download Resume <Download size={17} />
-              </a>
-            ) : (
-              <Link href="/resume" className="button outline">
-                View Resume <ArrowUpRight size={17} />
-              </Link>
-            )}
+            <Link href="/resume" className="button outline">
+              Read my resume <ArrowUpRight size={16} />
+            </Link>
           </div>
           <SocialLinks compact />
+          <p className="student-context">{site.introduction.experience}</p>
         </div>
       </section>
       <section
@@ -63,8 +43,8 @@ export default function Home() {
       >
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / SELECTED ENGINEERING WORK</p>
-            <h2>What I built. What changed.</h2>
+            <p className="eyebrow">A FEW PROJECTS</p>
+            <h2>Things I’ve been building.</h2>
           </div>
           <Link href="/projects" className="text-link">
             All projects <ArrowUpRight size={17} />
@@ -78,15 +58,15 @@ export default function Home() {
             ))}
         </div>
         <p className="section-note">
-          Architecture, decisions, and evaluation—not just the final score. Each
-          study links to its source.
+          Each write-up covers what I tried, how I evaluated it, and what I’d
+          improve next. The results link back to the original records.
         </p>
       </section>
       <section className="container section recruiter-experience">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / INDUSTRY & TEACHING</p>
-            <h2>Experience that supports the work.</h2>
+            <p className="eyebrow">ALONG THE WAY</p>
+            <h2>Where I’ve worked and taught.</h2>
           </div>
           <Link href="/experience" className="text-link">
             Full experience <ArrowUpRight size={16} />
@@ -105,7 +85,7 @@ export default function Home() {
         <p className="recruiter-about">
           Computer Science at {site.university}, with a minor in {site.minor}.{" "}
           <Link href="/about" className="text-link">
-            Background & technical skills <ArrowUpRight size={14} />
+            More about me <ArrowUpRight size={14} />
           </Link>
         </p>
       </section>

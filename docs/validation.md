@@ -39,3 +39,11 @@ Desktop/mobile full-page homepage screenshots and desktop/mobile case-study scre
 - Local checks passed: lint, strict TypeScript, production build, 9 existing/updated Playwright tests across 11 routes and three widths, 3 configuration/evidence-consistency tests, formatting and whitespace checks.
 - Obsolete explorer interaction tests were replaced with proof-card/source checks; reduced-motion checks now target project cards. Other navigation, filtering, download, accessibility and no-JavaScript coverage remains.
 - Inspected desktop/mobile rendered pages, narrow 320px layout, the loaded optimized screenshot, and real output links. This validates the website presentation; no project experiments were rerun.
+
+## Personal portfolio and HTML resume update
+
+- Introduced Tam by name, UIC studies, interests and opportunities; simplified About, Experience, Contact and project framing without removing project evidence.
+- Replaced the download-only resume route with complete server-rendered HTML sourced from the supplied November resume: education, both internships, three projects, technical skills and teaching. Preserved benchmark scope and external NIST context. The phone remains private.
+- Added responsive section navigation and print styles. PDF availability controls only the secondary download action.
+- Passed lint, strict TypeScript, production build, 10 Playwright tests and 3 configuration tests. Browser coverage includes 11 routes at mobile, tablet and desktop widths, accessibility, navigation, filtering, source evidence, downloads, metadata, no-JavaScript resume reading and print layout. Desktop/mobile homepage and HTML resume screenshots were inspected.
+- Independent content/code review found no actionable issues.

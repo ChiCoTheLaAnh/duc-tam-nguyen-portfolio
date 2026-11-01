@@ -68,9 +68,25 @@ test("filters, mobile navigation, resume download and internal links", async ({
   });
   await expect(download).toBeVisible();
   await expect(download).toHaveAttribute("download", "Tam-Nguyen-Resume.pdf");
-  await expect(
-    page.getByRole("link", { name: "Open in a new tab" }),
-  ).toHaveAttribute("href", "/resume.pdf");
+  await expect(page.locator("iframe, object, embed")).toHaveCount(0);
+  for (const heading of [
+    "Education",
+    "Industry experience",
+    "Selected projects",
+    "Technical skills",
+    "Teaching experience",
+  ])
+    await expect(
+      page.getByRole("heading", { name: heading, exact: true }),
+    ).toBeVisible();
+  await expect(page.locator(".resume-document")).toContainText(
+    "August 2023 – May 2027",
+  );
+  await expect(page.locator(".resume-document")).toContainText("3.86 million");
+  await expect(page.locator(".resume-document")).toContainText("49.18%");
+  await expect(page.locator(".resume-document")).toContainText(
+    "Google Cloud Monitoring",
+  );
   const pdf = await request.get("/resume.pdf");
   expect(pdf.status()).toBe(200);
   expect(pdf.headers()["content-type"]).toContain("application/pdf");
@@ -138,9 +154,9 @@ test("V2 confirmed content, contact links and project hierarchy", async ({
   await expect(featured.nth(2)).toContainText("4 to 9");
   for (const card of await featured.all()) {
     await expect(card.locator(".project-answers dt")).toHaveText([
-      "Problem",
-      "Built",
-      "Result",
+      "The idea",
+      "My work",
+      "Results",
     ]);
     await expect(card.locator(".card-evidence-link a")).toHaveAttribute(
       "href",
@@ -148,8 +164,8 @@ test("V2 confirmed content, contact links and project hierarchy", async ({
     );
   }
   await expect(
-    page.getByRole("link", { name: "Download Resume", exact: true }),
-  ).toHaveAttribute("download", "Tam-Nguyen-Resume.pdf");
+    page.getByRole("link", { name: "Read my resume", exact: true }),
+  ).toHaveAttribute("href", "/resume");
   await page.goto("/experience");
   await expect(page.locator("main")).toContainText("Viettel High Tech");
   await expect(page.locator("main")).not.toContainText("Viettel Telecom");
@@ -257,6 +273,47 @@ test("mobile primary navigation remains usable without JavaScript", async ({
     await nav.getByRole("link", { name: "Projects", exact: true }).click();
     await expect(page).toHaveURL(/\/projects$/);
     await expect(page.locator(".project-card")).toHaveCount(5);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  } finally {
+    await context.close();
+  }
+});
+
+test("HTML resume is complete without JavaScript and supports section navigation and print", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 375, height: 812 },
+  });
+  try {
+    const page = await context.newPage();
+    await page.goto("/resume");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Duc Tam Nguyen",
+    );
+    await expect(page.locator("#resume-experience .resume-entry")).toHaveCount(
+      2,
+    );
+    await expect(page.locator("#resume-projects .resume-entry")).toHaveCount(3);
+    await expect(page.locator("#resume-teaching")).toContainText(
+      "CS 151 & CS 341",
+    );
+    await expect(page.locator("#resume-skills")).toContainText("PostgreSQL");
+    await expect(page.locator("iframe,object,embed")).toHaveCount(0);
+    await page
+      .getByRole("navigation", { name: "Resume sections" })
+      .getByRole("link", { name: "Projects", exact: true })
+      .click();
+    await expect(page).toHaveURL(/#resume-projects$/);
+    await page.emulateMedia({ media: "print" });
+    await expect(page.locator(".header")).toBeHidden();
+    await expect(page.locator(".resume-toc")).toBeHidden();
+    await expect(page.locator(".resume-document")).toBeVisible();
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,
