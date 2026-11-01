@@ -1,12 +1,12 @@
 # V2 content audit
 
-The requested `November Data Engineer.pdf` was not found in the workspace. Education, employment dates, titles, skills, contact information, GPA, and Dean’s List use the confirmed V2 brief as the fallback source. The original PDF still needs to be supplied for a document-to-site comparison and download integration.
+The supplied `November Data Engineer.pdf` has now been read and compared with the portfolio. Education, employment dates, job titles, skills, contact links, GPA, Dean’s List and featured project metrics agree with the V2 content. The original upload is unchanged; `public/resume.pdf` is a public copy with the phone number securely redacted, as requested by the earlier no-public-phone instruction. All other extracted resume text is preserved.
 
 ## Personal and experience updates
 
 - Tam Nguyen / Duc Tam Nguyen; Chicago, IL; confirmed email, LinkedIn, and GitHub centralized in `src/content/site.ts`. No phone number is published.
 - BS Computer Science, Mathematics minor, May 2027, GPA 3.6/4.0, Dean’s List. Removed the superseded Data Science concentration.
-- Viettel AI — Computer Vision / AI Intern, May–August 2025. ResNet/ViT face recognition and accuracy/latency evaluation. NIST FRTE 1 gallery analysis is explicitly external; no claim of deploying or evaluating an internal 1.6-million-identity system.
+- Viettel AI — Computer Vision / AI Intern, May–August 2025. ResNet/ViT face recognition and accuracy/latency evaluation. NIST FRTE 1:N gallery analysis is explicitly external; no claim of deploying or evaluating an internal 1.6-million-identity system.
 - Viettel High Tech — Data Science Intern, May–August 2024. Multi-million-row datasets, segmentation and propensity modeling, 15% targeting and 30% reporting improvements. Removed the old Viettel Telecom label.
 - UIC — Undergraduate Teaching Assistant, August 2024–Present; CS 151 and CS 341; more than 100 students.
 - Removed the older unsupported Viettel AI 3-point/2× improvement claims from public content.
@@ -25,6 +25,7 @@ Repository source was read; workloads were not retrained, benchmarked, or redepl
 
 ## Remaining evidence and asset needs
 
-- Original November resume PDF; no substitute was generated.
+- Resume integrated: one-page public PDF, working contact hyperlinks, and no extractable phone number. No replacement resume was written.
+- Source-confirmed additions: selected coursework; comparative-report work at Viettel AI; exploratory analysis/data-quality work at Viettel High Tech; fuller CS 151/CS 341 teaching responsibilities. Corrected the benchmark notation to FRTE 1:N.
 - Optional stronger research reproducibility documentation for the secondary CNN project.
 - The actual Vercel-assigned production origin. No domain availability, deployment, or purchase is implied.

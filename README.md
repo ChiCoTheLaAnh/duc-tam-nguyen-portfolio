@@ -4,7 +4,7 @@ A creative, case-study-led portfolio for data, ML, and AI engineering. Built on 
 
 ## Run locally
 
-Use Node.js 24 and npm (Node 22+ supports the application).
+Use Node.js 24 and npm. The package engine is pinned to `24.x` for the production runtime.
 
 ```sh
 npm ci
@@ -42,7 +42,7 @@ src/components/             Navigation, hero system explorer, SVG sketches,
 src/content/site.ts         Identity, contacts, education, skills, experience
 src/content/projects.ts     Typed projects, sections, tables, decisions
 src/lib/                    Origin validation, metadata, resume detection
-public/                     Static assets; supply resume.pdf here
+public/                     Static assets; phone-redacted resume.pdf
 tests/                      Browser, accessibility and config tests
 docs/content-audit.md       Sources, corrections, and benchmark scope
 docs/design-v2.md           Visual and implementation decisions
@@ -53,7 +53,7 @@ docs/validation.md          Executed checks and limitations
 
 Edit `src/content/site.ts`. Confirmed contact details, Chicago location, education, GPA, Mathematics minor, Dean’s List, target roles, experience dates and skills are centralized there. Do not publish a phone number. A direct `mailto:` link is provided; there is no contact form.
 
-The original **November Data Engineer.pdf** was not supplied. The current content uses the confirmed November 2026 updates in the V2 brief, not the superseded V1 details. See the content audit for source-reviewed project claims and corrections.
+The supplied **November Data Engineer.pdf** has been reviewed against the portfolio. Its public copy is included at `public/resume.pdf`, with the phone number removed to honor the instruction not to publish it. The original upload is unchanged. See the content audit for resume alignment and source-reviewed project claims.
 
 ## Add or edit a project
 
@@ -69,7 +69,7 @@ QuickScout’s 76 current CI tests are separate from the 74-test historical host
 
 ## Resume integration
 
-Place the actual latest PDF at `public/resume.pdf`, then rebuild. The `/resume` page checks for that file at build time and exposes open/download actions only when it exists. Downloads use `Tam-Nguyen-Resume.pdf`. Missing files produce a useful experience/projects fallback. Do not generate a replacement document.
+The current public resume is at `public/resume.pdf`. To update it, review the new PDF for private contact information, replace this file, then rebuild. The `/resume` page checks for that file at build time and exposes open/download actions only when it exists. Downloads use `Tam-Nguyen-Resume.pdf`. Missing files produce a useful experience/projects fallback. Do not generate a replacement document.
 
 ## Visual system and accessibility
 
@@ -84,7 +84,7 @@ No deployment, purchase, or custom domain is required or performed automatically
 1. Import `ChiCoTheLaAnh/duc-tam-nguyen-portfolio` into Vercel. Select the Next.js preset, repository root, and Node.js 24. Use `npm ci` and `npm run build`; keep the default output settings.
 2. Review the project name/hostname Vercel actually assigns. Do not assume a requested subdomain is available. If the setup screen does not expose the final production origin yet, create a preview first after approving deployment, then obtain the assigned production domain in project settings.
 3. Set **`NEXT_PUBLIC_SITE_URL`** for Production to that actual HTTPS origin with no path, credentials, query, or port. Do not include invented domains or localhost. The application refuses a Vercel production build without this value. For previews, either leave it unset (no canonical/social-image origin is published) or use the confirmed canonical production origin.
-4. Supply `public/resume.pdf` if available, then deploy to Production only after approval. Rebuild/redeploy whenever the origin or PDF changes; these are evaluated at build time.
+4. The public resume is included. Deploy to Production only after approval. Rebuild/redeploy whenever the origin or PDF changes; these are evaluated at build time.
 5. Verify canonical metadata, social image, `/robots.txt`, `/sitemap.xml`, contacts, case-study links and the PDF download. The sitemap should include all content pages under the assigned origin.
 
 Without an origin, local builds intentionally emit no canonical URLs, social-image URLs, or sitemap entries. The generated image endpoint still works locally. This avoids publishing development/placeholder origins. The origin parser can validate format, not domain ownership or availability; confirm the actual hostname in Vercel.

@@ -13,6 +13,14 @@ export const site = {
   education: "Bachelor of Science in Computer Science",
   minor: "Mathematics",
   graduation: "May 2027",
+  educationDates: "August 2023 – May 2027",
+  coursework: [
+    "Machine Learning",
+    "Applied Statistics",
+    "Computer Vision",
+    "Data Science",
+    "Big Data Mining",
+  ],
   gpa: "3.6/4.0",
   achievement: "Dean’s List",
   targetRoles: [
@@ -70,7 +78,8 @@ export const experience = [
     description:
       "Implemented and evaluated face recognition pipelines using ResNet and Vision Transformer backbones, benchmarking recognition accuracy and inference latency.",
     outcomes: [
-      "Analyzed external NIST FRTE 1 identification benchmarks with galleries of up to 1.6 million identities.",
+      "Synthesized experimental findings, technical benchmarks, and implementation constraints into comparative reports supporting internal computer vision research.",
+      "Analyzed external NIST FRTE 1:N identification benchmarks with galleries of up to 1.6 million identities.",
       "Examined FPIR/FNIR and deployment trade-offs. The gallery size describes the external benchmark, not an internal system I deployed or evaluated.",
     ],
     highlight: "Face recognition · ResNet & ViT",
@@ -86,6 +95,7 @@ export const experience = [
     outcomes: [
       "Improved campaign targeting accuracy by 15%.",
       "Reduced recurring reporting time by 30%.",
+      "Used exploratory analysis and data-quality checks to validate model inputs and support marketing decisions.",
     ],
     highlight: "15% better targeting · 30% less reporting time",
     skills: ["Python", "SQL", "Customer segmentation", "Propensity modeling"],
@@ -96,7 +106,7 @@ export const experience = [
     field: "CS 151 & CS 341",
     dates: "August 2024 – Present",
     description:
-      "Supported more than 100 students through instruction, office hours, and grading across CS 151 and CS 341.",
+      "Supported more than 100 students in discrete mathematics and programming language concepts through office hours, technical instruction, assignment grading, and faculty collaboration across CS 151 and CS 341.",
     outcomes: [],
     highlight: "100+ students · CS 151 & CS 341",
     skills: [

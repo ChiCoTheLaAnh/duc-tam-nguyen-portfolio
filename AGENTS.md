@@ -1,7 +1,7 @@
 # Project conventions
 
 - Work in this existing checkout; the cloud task is isolated. Do not create worktrees unless requested.
-- Use Node 22+ (24 recommended) and `npm ci`. Keep package-lock.json in sync with dependency changes.
+- Use Node.js 24 (package engine `24.x`) and `npm ci`. Keep package-lock.json in sync with dependency changes.
 - Run `npm run lint`, `npm run typecheck`, `npm run build`, then `npm test` and `npm run test:config` for substantial changes.
 - Next.js App Router and server components are the default. Client components are limited to stateful interactions.
 - Personal information belongs in src/content/site.ts; projects belong in src/content/projects.ts. Do not scatter contact strings across components.

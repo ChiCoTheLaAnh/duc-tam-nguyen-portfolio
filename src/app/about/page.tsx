@@ -87,6 +87,10 @@ export default function About() {
                 <span key={t}>{t}</span>
               ))}
             </div>
+            <div className="coursework">
+              <p className="eyebrow">SELECTED COURSEWORK</p>
+              <p>{site.coursework.join(" · ")}</p>
+            </div>
           </div>
         </div>
         <section className="principles">

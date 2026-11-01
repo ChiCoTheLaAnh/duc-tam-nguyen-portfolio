@@ -41,7 +41,7 @@ for (const width of [375, 768, 1440]) {
     expect(errors).toHaveLength(0);
   });
 }
-test("filters, mobile navigation, resume fallback and internal links", async ({
+test("filters, mobile navigation, resume download and internal links", async ({
   page,
   request,
 }) => {
@@ -62,10 +62,24 @@ test("filters, mobile navigation, resume fallback and internal links", async ({
   await page.getByRole("button", { name: "All projects", exact: true }).click();
   await expect(page.locator(".project-card")).toHaveCount(5);
   await page.goto("/resume");
-  await expect(page.locator('a[href="/resume.pdf"]')).toHaveCount(0);
+  const download = page.getByRole("link", {
+    name: "Download PDF",
+    exact: true,
+  });
+  await expect(download).toBeVisible();
+  await expect(download).toHaveAttribute("download", "Tam-Nguyen-Resume.pdf");
   await expect(
-    page.getByRole("link", { name: "View experience", exact: true }),
-  ).toBeVisible();
+    page.getByRole("link", { name: "Open in a new tab" }),
+  ).toHaveAttribute("href", "/resume.pdf");
+  const pdf = await request.get("/resume.pdf");
+  expect(pdf.status()).toBe(200);
+  expect(pdf.headers()["content-type"]).toContain("application/pdf");
+  expect((await pdf.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  const pendingDownload = page.waitForEvent("download");
+  await download.click();
+  const downloaded = await pendingDownload;
+  expect(downloaded.suggestedFilename()).toBe("Tam-Nguyen-Resume.pdf");
+  expect(await downloaded.failure()).toBeNull();
   for (const route of routes) {
     await page.goto(route);
     const hrefs = await page
@@ -137,11 +151,17 @@ test("V2 confirmed content, contact links and project hierarchy", async ({
     "August 2024 – Present",
     "CS 341",
     "100 students",
-    "external NIST",
+    "external NIST FRTE 1:N",
   ])
     await expect(page.locator("main")).toContainText(text);
   await page.goto("/about");
-  for (const text of ["Mathematics", "3.6/4.0", "Dean’s List"])
+  for (const text of [
+    "Mathematics",
+    "3.6/4.0",
+    "Dean’s List",
+    "Applied Statistics",
+    "Big Data Mining",
+  ])
     await expect(page.locator("main")).toContainText(text);
   await page.goto("/projects/quickscout-football");
   await expect(page.locator("main")).toContainText("76");

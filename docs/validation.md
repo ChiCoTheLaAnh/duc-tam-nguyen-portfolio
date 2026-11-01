@@ -17,8 +17,16 @@ Desktop/mobile full-page homepage screenshots and desktop/mobile case-study scre
 
 - Chromium was available; Firefox and WebKit were not installed, so no cross-engine claim is made.
 - Automated accessibility checks do not replace manual assistive-technology review.
-- The actual November resume PDF was unavailable; the missing-PDF fallback is tested. A real download remains untested until the asset is provided. No replacement resume was generated.
-- Content uses the confirmed V2 brief and inspected public source. The original resume could not be compared, and underlying ML experiments, data pipelines and benchmarks were not rerun.
+- The November PDF has since been supplied. The follow-up integration tests the real public download and separately preserves missing-file detection coverage; see the resume integration record below.
+- Content uses the confirmed V2 brief, supplied November resume, and inspected public source. Underlying ML experiments, data pipelines and benchmarks were not rerun.
 - GitHub repositories were accessible through native Git. The LinkedIn URL and mailto address match the confirmed brief; inbox delivery and LinkedIn authentication/availability are not tested.
 - The actual Vercel-assigned origin is not available. Local builds intentionally publish no canonical/social-image origins or sitemap entries. Format/production guard tests exercise the origin resolver. Final deployed metadata must be checked after the real origin is set.
 - No cloud ML demo, Vercel deployment, domain purchase, or paid service was created.
+
+## November resume integration follow-up
+
+- Read the supplied original PDF and compared education, dates, titles, skills and project metrics with the portfolio. Added coursework and source-confirmed experience details; corrected NIST FRTE notation to 1:N.
+- Created `public/resume.pdf` from the supplied PDF with only the phone number redacted. Verified all other extracted text is unchanged, no phone text or telephone link remains, and the original upload is unchanged. Inspected the rendered public PDF; it remains one page with contact hyperlinks.
+- Fresh checks passed: ESLint, strict TypeScript, Prettier, production build, 9 Playwright browser/accessibility tests, and 2 configuration/asset-detection tests.
+- Browser validation downloaded the actual PDF successfully as `Tam-Nguyen-Resume.pdf`, checked HTTP 200, PDF content type and file signature. A separate isolated file-detection test covers the missing-asset fallback.
+- The resume follow-up was initially kept local. V3 deployment preparation includes it in the release on GitHub; environment publication and Vercel production deployment remain separate actions.

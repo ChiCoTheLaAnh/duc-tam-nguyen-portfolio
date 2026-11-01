@@ -21,4 +21,4 @@ Centralize confirmed personal and resume details. Add typed tables, expandable d
 
 ## Asset limitation
 
-November Data Engineer.pdf was not present under /workspace. Use the V2 brief’s verified details; do not fabricate a replacement PDF. Preserve the graceful resume route.
+The November resume has since been supplied and integrated. Preserve the phone-redacted public copy and the graceful missing-asset fallback; do not fabricate a replacement resume.
