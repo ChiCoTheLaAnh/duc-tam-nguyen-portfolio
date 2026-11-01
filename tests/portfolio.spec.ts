@@ -149,19 +149,49 @@ test("V2 confirmed content, contact links and project hierarchy", async ({
   ])
     await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
   await expect(page.locator(".hero-lab")).toHaveCount(0);
-  await expect(featured.nth(0)).toContainText("40/40");
-  await expect(featured.nth(1)).toContainText("0.3351 → 0.3780");
-  await expect(featured.nth(2)).toContainText("4 to 9");
+  await expect(featured.nth(0)).toContainText("second run");
+  await expect(featured.nth(1)).toContainText("I kept the simpler model");
+  await expect(featured.nth(2)).toContainText("Chi Hieu Nguyen");
+  await expect(
+    page.locator(
+      ".featured-grid .project-answers, .featured-grid .evidence-visual",
+    ),
+  ).toHaveCount(0);
   for (const card of await featured.all()) {
-    await expect(card.locator(".project-answers dt")).toHaveText([
-      "The idea",
-      "My work",
-      "Results",
-    ]);
-    await expect(card.locator(".card-evidence-link a")).toHaveAttribute(
-      "href",
-      /github\.com\/.+\/blob\/[a-f0-9]{40}\//,
-    );
+    await expect(card.locator(".project-artifact figcaption")).toBeVisible();
+  }
+  await expect(featured.nth(1)).toContainText("synthetic test fixture");
+  await expect(featured.nth(1).locator("pre")).toContainText(
+    '"recommendation_mode": "personalized"',
+  );
+  await expect(
+    featured.nth(2).getByRole("link", { name: /Open selective clip/ }),
+  ).toHaveAttribute(
+    "href",
+    "https://drive.google.com/file/d/1z06GMwMZlz-uYA9qftWn9Kp_DIPi-y_p/view",
+  );
+  expect(
+    await page
+      .locator(".recruiter-experience")
+      .evaluate(
+        (el) =>
+          !!(
+            el.compareDocumentPosition(
+              document.getElementById("selected-work")!,
+            ) & Node.DOCUMENT_POSITION_FOLLOWING
+          ),
+      ),
+  ).toBe(true);
+  await expect(page.getByLabel("Resume at a glance")).toContainText("3.6/4.0");
+  await expect(page.locator(".hero")).toContainText(
+    "My main direction is data engineering",
+  );
+  for (const image of await page.locator(".featured-grid img").all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect(image).toBeVisible();
+    await expect
+      .poll(() => image.evaluate((el) => (el as HTMLImageElement).naturalWidth))
+      .toBeGreaterThan(0);
   }
   await expect(
     page.getByRole("link", { name: "Read my resume", exact: true }),

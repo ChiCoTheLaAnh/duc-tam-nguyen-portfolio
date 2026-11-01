@@ -34,9 +34,8 @@ export function ContactCTA() {
         <p className="eyebrow">SAY HELLO</p>
         <h2>Have a question or an opportunity?</h2>
         <p>
-          I’m looking for opportunities to learn and contribute on data, ML, and
-          AI teams. If that sounds like a fit—or you want to talk about a
-          project—I’d be happy to hear from you.
+          I’m looking for data engineering opportunities. If you’re hiring, or
+          you’d like to ask about something I’ve built, I’d be happy to talk.
         </p>
       </div>
       <a href={`mailto:${site.email}`} className="button dark">

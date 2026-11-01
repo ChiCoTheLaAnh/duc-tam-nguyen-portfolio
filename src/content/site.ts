@@ -15,9 +15,9 @@ export const site = {
   graduation: "May 2027",
   introduction: {
     interests:
-      "I like working through the practical parts of data and machine learning: making a pipeline dependable, comparing models, and turning an experiment into something usable.",
+      "My main direction is data engineering. I like the work between an API response and a table I can trust: ingestion, SQL modeling, and making a rerun safe. I also build ML services, where I’m interested in what makes a model practical to serve.",
     opportunities:
-      "I’m looking for internships and early-career opportunities in data engineering, machine learning, and AI.",
+      "I’m looking for data engineering internships and early-career roles, with ML engineering as a secondary interest.",
     experience:
       "Two industry internships at Viettel · Teaching assistant for CS 151 & CS 341",
   },
@@ -98,6 +98,8 @@ export const experience = [
       "Analyzed external NIST FRTE 1:N identification benchmarks with galleries of up to 1.6 million identities.",
       "Examined FPIR/FNIR and deployment trade-offs. The gallery size describes the external benchmark, not an internal system I deployed or evaluated.",
     ],
+    homeSummary:
+      "I evaluated ResNet and ViT face-recognition pipelines in Python, comparing accuracy and inference latency.",
     highlight: "Face recognition · ResNet & ViT",
     skills: ["ResNet", "Vision Transformers", "Model evaluation"],
   },
@@ -121,6 +123,8 @@ export const experience = [
       "Reduced recurring reporting time by 30%.",
       "Used exploratory analysis and data-quality checks to validate model inputs and support marketing decisions.",
     ],
+    homeSummary:
+      "I built segmentation models and automated Python/SQL reporting workflows on multi-million-row telecom data.",
     highlight: "15% better targeting · 30% less reporting time",
     skills: ["Python", "SQL", "Customer segmentation", "Propensity modeling"],
   },
@@ -138,6 +142,8 @@ export const experience = [
     description:
       "Supported more than 100 students in discrete mathematics and programming language concepts through office hours, technical instruction, assignment grading, and faculty collaboration across CS 151 and CS 341.",
     outcomes: [],
+    homeSummary:
+      "I support students in discrete mathematics and programming language concepts through office hours, instruction, and grading.",
     highlight: "100+ students · CS 151 & CS 341",
     skills: [
       "Instruction",

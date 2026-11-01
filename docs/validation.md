@@ -47,3 +47,12 @@ Desktop/mobile full-page homepage screenshots and desktop/mobile case-study scre
 - Added responsive section navigation and print styles. PDF availability controls only the secondary download action.
 - Passed lint, strict TypeScript, production build, 10 Playwright tests and 3 configuration tests. Browser coverage includes 11 routes at mobile, tablet and desktop widths, accessibility, navigation, filtering, source evidence, downloads, metadata, no-JavaScript resume reading and print layout. Desktop/mobile homepage and HTML resume screenshots were inspected.
 - Independent content/code review found no actionable issues.
+
+## Artifact-led personal project stories
+
+- Moved concise internship/teaching responsibilities and a resume summary before selected work; the user confirmed data engineering as the main direction.
+- Replaced card metric graphics and repeated answer grids with distinct engineering narratives and source artifacts: original local Airflow screenshot/log, captured FastAPI fixture JSON, and unchanged tracking frames extracted from the supplied slides. Detailed benchmarks and limitations remain in case studies.
+- Captured the existing recommender fixture through its actual API, asserted HTTP 200 and exact equality with offline bundle output. This was a synthetic-fixture behavior check, not a retail-model benchmark reproduction.
+- Inspected desktop/mobile homepage and gallery screenshots. Browser checks cover actual image loading, artifact captions, original slide clip destinations, experience ordering, filtering, navigation, no-JavaScript behavior, responsive HTML resume, PDF download, metadata, accessibility and horizontal overflow.
+- The original slide links target Google Drive, outside the current network allowlist; current playback/sharing permissions remain unverified. Local comparison frames are available without Drive or JavaScript. No video file or portrait was supplied.
+- Final checks passed: ESLint, strict TypeScript, production build, all 10 Playwright tests, all 3 configuration tests, Prettier and whitespace checks. The final gallery spacing is present in the built CSS; a fresh production-server check confirms the short secondary card no longer stretches to the tracking card's height.

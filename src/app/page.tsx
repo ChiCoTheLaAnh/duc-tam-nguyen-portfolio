@@ -34,33 +34,7 @@ export default function Home() {
             </Link>
           </div>
           <SocialLinks compact />
-          <p className="student-context">{site.introduction.experience}</p>
         </div>
-      </section>
-      <section
-        id="selected-work"
-        className="section container selected-evidence"
-      >
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">A FEW PROJECTS</p>
-            <h2>Things I’ve been building.</h2>
-          </div>
-          <Link href="/projects" className="text-link">
-            All projects <ArrowUpRight size={17} />
-          </Link>
-        </div>
-        <div className="project-grid featured-grid evidence-first">
-          {projects
-            .filter((p) => p.featured)
-            .map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-        </div>
-        <p className="section-note">
-          Each write-up covers what I tried, how I evaluated it, and what I’d
-          improve next. The results link back to the original records.
-        </p>
       </section>
       <section className="container section recruiter-experience">
         <div className="section-heading">
@@ -78,15 +52,47 @@ export default function Home() {
               <span className="experience-date">{e.dates}</span>
               <h3>{e.company}</h3>
               <p>{e.role}</p>
+              <p className="experience-ownership">{e.homeSummary}</p>
               <strong>{e.highlight}</strong>
             </article>
           ))}
         </div>
-        <p className="recruiter-about">
-          Computer Science at {site.university}, with a minor in {site.minor}.{" "}
-          <Link href="/about" className="text-link">
-            More about me <ArrowUpRight size={14} />
+        <div className="resume-at-a-glance" aria-label="Resume at a glance">
+          <div>
+            <span className="eyebrow">RESUME, AT A GLANCE</span>
+            <p>BS Computer Science · Mathematics minor</p>
+            <p>
+              UIC · {site.graduation} · GPA {site.gpa} · {site.achievement}
+            </p>
+          </div>
+          <Link href="/resume" className="text-link">
+            Education, experience & skills <ArrowUpRight size={16} />
           </Link>
+        </div>
+      </section>
+      <section
+        id="selected-work"
+        className="section container selected-evidence"
+      >
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">A FEW PROJECTS</p>
+            <h2>Things I’ve been building.</h2>
+          </div>
+          <Link href="/projects" className="text-link">
+            All projects <ArrowUpRight size={17} />
+          </Link>
+        </div>
+        <div className="project-grid featured-grid stories-first">
+          {projects
+            .filter((p) => p.featured)
+            .map((p) => (
+              <ProjectCard key={p.slug} project={p} />
+            ))}
+        </div>
+        <p className="section-note">
+          The case studies include architecture, benchmarks, source records, and
+          the parts I’d change next.
         </p>
       </section>
       <ContactCTA />

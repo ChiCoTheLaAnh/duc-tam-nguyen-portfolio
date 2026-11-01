@@ -19,6 +19,6 @@
 - Use pageMetadata for each public content route. Keep Person affiliation current; do not label an enrolled student as an alumnus.
 - Section motion must not fade text into low contrast; reduced motion, keyboard access, and no-JavaScript readability are required.
 
-- The homepage is personal and student-first: Tam’s name, UIC studies, interests and opportunities, HTML resume CTA, three project proof cards, compact experience, contact. Avoid corporate or agency copy and invented personal details. Keep technical capabilities on About; do not restore the interactive hero.
-- Project proof and chart data belong in src/content/evidence.ts. Keep percent improvements relative to the stated baseline and qualitative tracking outcomes separate from accuracy metrics.
+- The homepage is personal and student-first: Tam’s name, UIC studies, interests and opportunities, HTML resume CTA, compact experience/resume summary, then three project stories with real artifacts, and contact. Avoid corporate or agency copy and invented personal details. Keep technical capabilities on About; do not restore the interactive hero.
+- Homepage/gallery stories and slide links belong in src/content/project-stories.ts; real artifacts replace repeated answer grids and metric charts on cards. Detailed proof and chart data belong in src/content/evidence.ts for case studies. Keep percent improvements relative to the stated baseline and qualitative tracking outcomes separate from accuracy metrics.
 - Only use genuine, inspected source artifacts in public/evidence. Keep immutable source links and provenance; charts must be labeled as redrawn from recorded results, never as new experiments.

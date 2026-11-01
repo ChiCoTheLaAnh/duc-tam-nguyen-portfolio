@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "item_id": "A",
+      "ranking_score": 1.7605474775257184,
+      "description": "alpha"
+    },
+    {
+      "item_id": "B",
+      "ranking_score": -1.7605474775257184,
+      "description": "beta"
+    },
+    {
+      "item_id": "C",
+      "ranking_score": -1.7605474775257184,
+      "description": "gamma"
+    }
+  ],
+  "model_version": "logistic_5da77d2595d4e9f9",
+  "release_version": "release_v1_485da65a51916710cae32df542b24c1059ef0e8d0c7aa444a7f44e53651522eb",
+  "data_as_of": "2011-05-01T00:00:00",
+  "recommendation_mode": "personalized",
+  "score_kind": "raw_model_margin",
+  "scores_are_calibrated_probabilities": false
+}

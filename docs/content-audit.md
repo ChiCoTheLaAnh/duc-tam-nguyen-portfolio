@@ -53,3 +53,7 @@ Charts use recorded tables in the pinned recommendation README and tracking repo
 ## Native HTML resume and personal introduction
 
 The resume route now presents all supplied non-private resume sections as HTML, independently of PDF availability. Education, internship and teaching bullets, coursework and skills remain centralized in `src/content/site.ts`; the three resume project entries are in `src/content/resume.ts`. Local benchmark and external NIST qualifications remain explicit. The public PDF is unchanged. The personal introduction uses confirmed studies and engineering interests; no hobbies or additional achievements were invented.
+
+## Artifact-led project stories
+
+Data engineering is the user-confirmed main direction. Homepage experience and a compact resume summary now precede selected work. Repeated metric panels/answer grids on cards were replaced with individual engineering accounts and genuine artifacts. The supplied CS 415 deck provides baseline/selective frames and original video links, and credits Chi Hieu Nguyen as collaborator. The recommendation output is an actual local synthetic-fixture API response, not a trained retail model response. See `artifact-provenance.md` for exact sources, checksums, runtime and limitations. All detailed historical benchmarks and qualifications remain in case studies.
