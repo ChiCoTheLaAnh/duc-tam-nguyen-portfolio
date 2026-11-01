@@ -1,28 +1,41 @@
-# Vercel production deployment preparation
+# Vercel production deployment
 
-## Release source
+## Confirmed project and account
 
-- Repository: `ChiCoTheLaAnh/duc-tam-nguyen-portfolio`, branch `main`.
-- Runtime pinned to Node.js `24.x` in package.json and package-lock.json.
-- Install: `npm ci`; build: `npm run build`.
-- The release includes the supplied, phone-redacted `public/resume.pdf` and verified resume-aligned content. No redesign was performed.
-- Local verification passed: lint, strict TypeScript, production build, 9 Playwright browser/accessibility tests and 2 configuration/asset tests.
+- Live URL: **https://tam-nguyen-portfolio-snowy.vercel.app**.
+- Project: `tam-nguyen-portfolio` (`prj_O64WiMvi43ch0ZnBeJjfQGRfSSOU`).
+- Personal account: `chicothelaanh`; workspace: `chicothelaanhs-projects`.
+- Plan: **Hobby**, confirmed from the account/team API and CLI. No plan upgrade, domain purchase, or paid observability feature was used.
+- Existing projects were checked before creation; the pre-existing QuickScout project was left intact.
 
-## Access blockers
+## Build and continuous deployment
 
-The official Vercel CLI is installed outside the application in the current cloud instance, but is logged out. No Vercel credentials were requested in chat. No project was created or altered, so the account plan, project existence, production hostname, Git integration and deployments are not yet confirmed.
+- GitHub repository: `ChiCoTheLaAnh/duc-tam-nguyen-portfolio`.
+- Production branch: `main`; other branches use Preview deployments.
+- Git-triggered deployments: enabled (`gitProviderOptions.createDeployments=enabled`).
+- Framework: Next.js; Node.js: `24.x`.
+- Install command: `npm ci`; build command: `npm run build`.
+- Production variable: `NEXT_PUBLIC_SITE_URL=https://tam-nguyen-portfolio-snowy.vercel.app`.
+- Vercel’s domain API returned the verified hostname before the variable was set. Application origin validation was preserved.
+- No GitHub Actions deployment pipeline was added.
 
-The cloud proxy rejected the required Vercel API connection. The environment draft contains these additive network destinations, preserving the package-manager preset:
+## Initial verified release
 
-- `api.vercel.com`
-- `vercel.com`
-- `auth.vercel.com`
-- `*.vercel.app`
+- Implementation commit: `9acaeee376df1f94fa53d0c36de3a3f2157f6699` on `main`.
+- First production deployment: `dpl_6R7jGVHFo79cSTftaF6DHgr8S1uA`.
+- Vercel reported Ready; build logs show the expected Git commit, `npm ci`, successful Next.js compilation/type checking, static generation, and deployment completion.
+- The canonical production hostname returned HTTP 200 over HTTPS. HTTP redirected to HTTPS with status 308.
+- The supplied, phone-redacted resume is included at `/resume.pdf`.
+- Live Chromium testing identified Vercel’s static-file filename override. `vercel.json` now sets `Content-Disposition: inline; filename="Tam-Nguyen-Resume.pdf"` so browser downloads preserve the intended name while the open-in-tab action still works.
 
-These saved network requirements must be applied in environment settings before authentication, project lookup or live-site checks can proceed. Saving a draft does not apply it to the running instance.
+The deployment-documentation update is also used to verify that a normal push to `main` triggers another Production deployment through the native Git integration. The latest deployment’s exact Git SHA is available in Vercel deployment details; documentation-only commits do not change the verified application implementation.
 
-## Continue after access is enabled
+## Verification scope
 
-Use the official secure browser login flow; never request or expose passwords or access tokens. Inspect the personal account/plan and existing projects before creating anything. Reuse the project linked to the repository if it exists; otherwise create the preferred project only in a confirmed Hobby scope. Do not upgrade plans, buy domains, delete projects, or force-push history.
+Live validation checks all 11 content routes at mobile, tablet, and desktop widths, canonical and Open Graph origins, sitemap/robots, internal links, diagrams, contact destinations, interactive navigation/filtering, disclosure, reduced motion, and an actual PDF download matching the public asset. Build logs and included runtime/request error queries are inspected separately.
 
-Connect the GitHub repository with Production branch `main` and Preview deployments for other branches. Read the actual Vercel-assigned production hostname, set Production `NEXT_PUBLIC_SITE_URL` to that HTTPS origin, retain application origin validation, and trigger a production deployment from the verified Git commit. Inspect build/runtime logs and verify the live pages, contacts, resume, navigation, filtering, diagrams, HTTPS, canonical/OG metadata, robots and sitemap before reporting success. No deployment-related GitHub Actions workflow is needed.
+Only Chromium is available for browser automation. Mailto/LinkedIn/GitHub destinations are checked for correctness; sending email or authenticating to third-party profiles is outside validation. No separate push to a Preview branch is required for the configured default branch mapping, and no synthetic feature branch is created just to test it.
+
+## Authentication and local files
+
+Vercel authorization used the official browser device flow. No password or token was requested in chat. `.vercel/` and `.env.local` remain ignored; never commit their contents. The cloud environment network allowlist includes the required Vercel API/auth hosts and `.vercel.app` hosts.

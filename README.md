@@ -2,6 +2,8 @@
 
 A creative, case-study-led portfolio for data, ML, and AI engineering. Built on Next.js App Router, React, strict TypeScript, Tailwind CSS, Lucide, and a locally served Manrope variable font. No database, form backend, tracking service, or secrets are required.
 
+**Live portfolio:** [tam-nguyen-portfolio-snowy.vercel.app](https://tam-nguyen-portfolio-snowy.vercel.app)
+
 ## Run locally
 
 Use Node.js 24 and npm. The package engine is pinned to `24.x` for the production runtime.
@@ -77,17 +79,23 @@ Warm ivory, forest ink, and teal support editorial typography and custom system 
 
 Semantic headings, focus outlines, a skip link, Escape-to-close mobile navigation, labeled figures, real tables, native `details`, and scrollable table regions support keyboard use. Manrope is bundled through `next/font/local` from `@fontsource-variable/manrope` (OFL-1.1; license distributed with the package); no external font host is contacted at runtime.
 
-## Vercel Hobby deployment — requires your approval
+## Vercel Hobby production
 
-No deployment, purchase, or custom domain is required or performed automatically. Use Vercel’s free personal/Hobby option and its assigned `.vercel.app` hostname.
+The existing project is **tam-nguyen-portfolio**, in the personal **chicothelaanhs-projects** workspace on the free **Hobby** plan. Reuse this project; do not create a duplicate or purchase a domain.
 
-1. Import `ChiCoTheLaAnh/duc-tam-nguyen-portfolio` into Vercel. Select the Next.js preset, repository root, and Node.js 24. Use `npm ci` and `npm run build`; keep the default output settings.
-2. Review the project name/hostname Vercel actually assigns. Do not assume a requested subdomain is available. If the setup screen does not expose the final production origin yet, create a preview first after approving deployment, then obtain the assigned production domain in project settings.
-3. Set **`NEXT_PUBLIC_SITE_URL`** for Production to that actual HTTPS origin with no path, credentials, query, or port. Do not include invented domains or localhost. The application refuses a Vercel production build without this value. For previews, either leave it unset (no canonical/social-image origin is published) or use the confirmed canonical production origin.
-4. The public resume is included. Deploy to Production only after approval. Rebuild/redeploy whenever the origin or PDF changes; these are evaluated at build time.
-5. Verify canonical metadata, social image, `/robots.txt`, `/sitemap.xml`, contacts, case-study links and the PDF download. The sitemap should include all content pages under the assigned origin.
+- Production URL: `https://tam-nguyen-portfolio-snowy.vercel.app` (assigned and verified by Vercel).
+- Repository: `ChiCoTheLaAnh/duc-tam-nguyen-portfolio`.
+- Production branch: `main`; other branches use Preview deployments.
+- Runtime: Node.js `24.x`; framework: Next.js.
+- Install: `npm ci`; build: `npm run build`; default output directory.
+- Production variable: **`NEXT_PUBLIC_SITE_URL=https://tam-nguyen-portfolio-snowy.vercel.app`**.
+- Automatic Git deployments are enabled. Pushes to `main` deploy to Production; do not add a separate GitHub Actions deployment pipeline.
 
-Without an origin, local builds intentionally emit no canonical URLs, social-image URLs, or sitemap entries. The generated image endpoint still works locally. This avoids publishing development/placeholder origins. The origin parser can validate format, not domain ownership or availability; confirm the actual hostname in Vercel.
+The production origin was read from Vercel’s project-domain API before configuring the variable. Keep origin validation enabled. If the assigned production domain changes, update the Production variable and redeploy so canonical URLs, Open Graph image URLs, robots and sitemap reflect the new origin. Do not guess a `.vercel.app` hostname. The origin parser validates format, not ownership or availability.
+
+For previews, either leave `NEXT_PUBLIC_SITE_URL` unset (no canonical/social-image origin is published) or use the confirmed canonical production origin. Local builds without an origin intentionally emit no canonical URLs, social-image URLs, or sitemap entries.
+
+See `docs/deployment-status.md` for the verified settings and deployment record. The CLI’s local `.vercel/` directory and `.env.local` are ignored and must never be committed. No paid plan, custom domain, or paid observability feature is needed.
 
 ## Git
 
