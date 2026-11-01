@@ -29,3 +29,23 @@ Repository source was read; workloads were not retrained, benchmarked, or redepl
 - Source-confirmed additions: selected coursework; comparative-report work at Viettel AI; exploratory analysis/data-quality work at Viettel High Tech; fuller CS 151/CS 341 teaching responsibilities. Corrected the benchmark notation to FRTE 1:N.
 - Optional stronger research reproducibility documentation for the secondary CNN project.
 - The actual Vercel-assigned production origin. No domain availability, deployment, or purchase is implied.
+
+## Evidence-first presentation update
+
+- Every current project now has problem/build/result/evidence fields in `src/content/evidence.ts`. Featured cards show the result and immutable source link immediately; case studies show the chart, scope, and source artifacts before conceptual architecture.
+- Recommendation headline: `(0.3780 − 0.3351) / 0.3351 × 100 ≈ 12.8%` relative validation NDCG gain over the personalized heuristic. It is not business lift or test-set performance. XGBoost comparison, artifact-size trade-off and five-client local API conditions remain explicit. The separately documented IAM-protected Cloud Run demo includes its 1/250 unsuccessful attempt; local latency is not presented as deployed latency.
+- Tracking headline compares counts for two policies on the same 19 clips: improved 4→9, worse 7→4; the selective policy has 9 improved, 6 unchanged and 4 worse relative to baseline. This is qualitative review, not segmentation accuracy. Both gates use the same schedule, prompts and checkpoints.
+- QuickScout row-preservation evidence is historical hosted validation. The 76-test CI fixture is distinct from the 74-test hosted builds. Local Airflow recovery and the unchanged 20-row checksum are not a production orchestration claim.
+- The homepage interactive explorer was removed. Capabilities moved to About; experience was condensed. Existing hero qualifications and direct resume download were retained.
+
+### Original artifacts copied unchanged
+
+Source commit: `e6b656253e4c8636f89b73d26fd43edb6a48e13f` in QuickScoutFootball. Screenshot and logs were inspected for private content before copying. The screenshot is displayed as a zoomed detail with a link to the unchanged original file.
+
+| Public file                                       | Source file                                  | SHA-256                                                            |
+| ------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------ |
+| `public/evidence/quickscout-airflow-run.png`      | `docs/airflow/successful-run.png`            | `c05684db5742c8da5cd36813f9f29a3f7a792aa92b314b0a98cac67f37933bcb` |
+| `public/evidence/quickscout-idempotent-rerun.txt` | `docs/airflow/evidence/idempotent-rerun.log` | `9d1aa1c800fe2178983f16e299ec80fddd9d3db2f81ceeff978b2125aed2fd64` |
+| `public/evidence/quickscout-retry-recovery.txt`   | `docs/airflow/evidence/retry-attempt-2.log`  | `5ca1e99e2c760bc971240072ae7d9f7e5e8a62e642cfe0758c8524eed015efbc` |
+
+Charts use recorded tables in the pinned recommendation README and tracking report listed above. The tracking repository contains a figure manifest but no checked-in frame images; no synthetic tracking screenshots were substituted. The underlying experiments and data pipelines were not rerun as part of this website update.

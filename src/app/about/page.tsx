@@ -1,6 +1,6 @@
 import { pageMetadata } from "@/lib/metadata";
 import { PageIntro, ContactCTA } from "@/components/shared";
-import { site } from "@/content/site";
+import { site, capabilities } from "@/content/site";
 export const metadata = pageMetadata(
   "About",
   "Meet Tam Nguyen, a UIC computer science student focused on data engineering, machine learning, and production software.",
@@ -93,6 +93,24 @@ export default function About() {
             </div>
           </div>
         </div>
+        <section className="about-capabilities">
+          <p className="eyebrow">TECHNICAL CAPABILITIES</p>
+          <h2>The tools I work with.</h2>
+          <div className="capability-grid">
+            {capabilities.map((c, i) => (
+              <article key={c.title} className="capability-card">
+                <span className="index">0{i + 1}</span>
+                <h3>{c.title}</h3>
+                <p>{c.description}</p>
+                <div className="tags">
+                  {c.tools.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
         <section className="principles">
           <p className="eyebrow">HOW I APPROACH THE WORK</p>
           <div className="principle-grid">

@@ -5,6 +5,8 @@ import { projects } from "@/content/projects";
 import { Diagram } from "@/components/diagram";
 import { ProjectVisual } from "@/components/project-visual";
 import { Decisions, ResultsTable } from "@/components/case-content";
+import { ProjectEvidence } from "@/components/project-evidence";
+import { projectEvidence } from "@/content/evidence";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -33,6 +35,7 @@ export default async function CaseStudy({
     permanentRedirect("/projects/multilabel-image-classification");
   const p = projects.find((p) => p.slug === slug);
   if (!p) notFound();
+  const proof = projectEvidence[p.slug];
   const next = projects[(projects.indexOf(p) + 1) % projects.length];
   return (
     <article className={`container page-shell case-study case-${p.visual}`}>
@@ -53,8 +56,8 @@ export default async function CaseStudy({
       </header>
       <div className="case-summary">
         <div>
-          <strong>{p.metric}</strong>
-          <span>{p.metricLabel}</span>
+          <strong>{proof?.metric || p.metric}</strong>
+          <span>{proof?.metricLabel || p.metricLabel}</span>
         </div>
         <p>{p.summary}</p>
         <a
@@ -66,6 +69,7 @@ export default async function CaseStudy({
           <GitFork size={15} /> View source <ArrowUpRight size={16} />
         </a>
       </div>
+      <ProjectEvidence slug={p.slug} />
       <div className="case-art">
         <ProjectVisual project={p} />
         <div className="case-art-note">

@@ -132,16 +132,24 @@ test("V2 confirmed content, contact links and project hierarchy", async ({
     "https://www.linkedin.com/in/ductam05/",
   ])
     await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
-  await page.getByRole("button", { name: "ML systems", exact: true }).click();
-  await expect(page.locator(".lab-story")).toContainText("earn its complexity");
-  await expect(page.locator(".lab-link")).toHaveAttribute(
-    "href",
-    "/projects/repeat-order-recommendation",
-  );
-  await page
-    .getByRole("button", { name: "Computer vision", exact: true })
-    .click();
-  await expect(page.locator(".lab-story")).toContainText("not distract it");
+  await expect(page.locator(".hero-lab")).toHaveCount(0);
+  await expect(featured.nth(0)).toContainText("40/40");
+  await expect(featured.nth(1)).toContainText("0.3351 → 0.3780");
+  await expect(featured.nth(2)).toContainText("4 to 9");
+  for (const card of await featured.all()) {
+    await expect(card.locator(".project-answers dt")).toHaveText([
+      "Problem",
+      "Built",
+      "Result",
+    ]);
+    await expect(card.locator(".card-evidence-link a")).toHaveAttribute(
+      "href",
+      /github\.com\/.+\/blob\/[a-f0-9]{40}\//,
+    );
+  }
+  await expect(
+    page.getByRole("link", { name: "Download Resume", exact: true }),
+  ).toHaveAttribute("download", "Tam-Nguyen-Resume.pdf");
   await page.goto("/experience");
   await expect(page.locator("main")).toContainText("Viettel High Tech");
   await expect(page.locator("main")).not.toContainText("Viettel Telecom");
@@ -208,7 +216,7 @@ test("metadata never guesses a production origin", async ({
   const xml = await (await request.get("/sitemap.xml")).text();
   expect(xml).not.toMatch(/localhost|example\.com|127\.0/);
 });
-test("mobile escape and reduced-motion system diagram", async ({ page }) => {
+test("mobile escape and reduced-motion project cards", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
@@ -223,9 +231,10 @@ test("mobile escape and reduced-motion system diagram", async ({ page }) => {
   ).toBeFocused();
   expect(
     await page
-      .locator(".lab-route")
-      .evaluate((e) => getComputedStyle(e).animationName),
-  ).toBe("none");
+      .locator(".project-card")
+      .first()
+      .evaluate((e) => getComputedStyle(e).transitionDuration),
+  ).toBe("0s");
 });
 
 test("mobile primary navigation remains usable without JavaScript", async ({

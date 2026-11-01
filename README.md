@@ -39,12 +39,13 @@ src/app/                    Routes, global styles, robots, sitemap
   opengraph-image/route.tsx  Generated social-preview image
   about/ experience/        Education, background, dated experience
   contact/ resume/          Direct contact and optional PDF download
-src/components/             Navigation, hero system explorer, SVG sketches,
+src/components/             Navigation, evidence charts, SVG sketches,
                             cards, architecture, tables, decision callouts
 src/content/site.ts         Identity, contacts, education, skills, experience
 src/content/projects.ts     Typed projects, sections, tables, decisions
+src/content/evidence.ts     Pinned source links, chart data and project proof
 src/lib/                    Origin validation, metadata, resume detection
-public/                     Static assets; phone-redacted resume.pdf
+public/                     Phone-redacted resume.pdf and original evidence assets
 tests/                      Browser, accessibility and config tests
 docs/content-audit.md       Sources, corrections, and benchmark scope
 docs/design-v2.md           Visual and implementation decisions
@@ -64,7 +65,8 @@ Edit the typed `projects` array in `src/content/projects.ts`:
 - Use a unique slug, verified repository URL, title, category/filter labels, technologies, and four architecture nodes.
 - Select an existing `visual` type, or add a schematic in `ProjectVisual`.
 - Supply a scoped primary metric, summary, evidence note, decision callouts, and sections. Sections support optional `table`, `points`, and expandable `details`.
-- Set `featured: true` for homepage inclusion. The first featured project receives the lead layout; keep the featured set to three.
+- Set `featured: true` for homepage inclusion; keep the featured set to three.
+- Add a record in `src/content/evidence.ts` to provide problem/build/result, validation and deployment scope, and immutable source links. Only add chart data or artifacts supported by those records. Store actual assets in `public/evidence`; document their provenance in the content audit.
 - Routes, gallery and sitemap derive from the data. Keep facts, experiment context, limitations and future proposals distinct. Never add fabricated example code or metrics.
 
 QuickScout’s 76 current CI tests are separate from the 74-test historical hosted builds and the local Airflow proof. Recommendation API latency is a **local** five-client benchmark. Video results are qualitative outcomes on 19 clips. The former handwriting page redirects to source-verified multi-label image classification; those metrics were not handwriting results.
@@ -75,7 +77,7 @@ The current public resume is at `public/resume.pdf`. To update it, review the ne
 
 ## Visual system and accessibility
 
-Warm ivory, forest ink, and teal support editorial typography and custom system illustrations. The hero has three keyboard-operable discipline buttons; illustrations are conceptual, not live service dashboards. Project cards have restrained hover movement, and sections translate slightly into place without making text transparent. Motion stops for `prefers-reduced-motion`. Content remains readable without JavaScript; interactive filtering/navigation and hero switching use small client components.
+Warm ivory, forest ink, and teal support editorial typography and custom system illustrations. The homepage leads with roles, credentials, scoped proof points, and direct project/resume actions. Featured projects immediately answer problem, build, result, and evidence. The former interactive hero was removed; full technical capabilities now live on About. Architecture illustrations remain conceptual; evidence charts are redrawn from pinned records, not new experiments. Project cards have restrained hover movement, and sections translate slightly into place without making text transparent. Motion stops for `prefers-reduced-motion`. Content remains readable without JavaScript; interactive filtering and navigation use small client components.
 
 Semantic headings, focus outlines, a skip link, Escape-to-close mobile navigation, labeled figures, real tables, native `details`, and scrollable table regions support keyboard use. Manrope is bundled through `next/font/local` from `@fontsource-variable/manrope` (OFL-1.1; license distributed with the package); no external font host is contacted at runtime.
 

@@ -18,3 +18,7 @@
 - The old handwriting-recognition route redirects to the source-verified multi-label image classification project. Do not restore the incorrect metric attribution.
 - Use pageMetadata for each public content route. Keep Person affiliation current; do not label an enrolled student as an alumnus.
 - Section motion must not fade text into low contrast; reduced motion, keyboard access, and no-JavaScript readability are required.
+
+- The homepage is evidence-first: roles and resume CTA, three project proof cards, compact experience, contact. Keep technical capabilities on About; do not restore the interactive hero.
+- Project proof and chart data belong in src/content/evidence.ts. Keep percent improvements relative to the stated baseline and qualitative tracking outcomes separate from accuracy metrics.
+- Only use genuine, inspected source artifacts in public/evidence. Keep immutable source links and provenance; charts must be labeled as redrawn from recorded results, never as new experiments.

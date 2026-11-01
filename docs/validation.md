@@ -30,3 +30,12 @@ Desktop/mobile full-page homepage screenshots and desktop/mobile case-study scre
 - Fresh checks passed: ESLint, strict TypeScript, Prettier, production build, 9 Playwright browser/accessibility tests, and 2 configuration/asset-detection tests.
 - Browser validation downloaded the actual PDF successfully as `Tam-Nguyen-Resume.pdf`, checked HTTP 200, PDF content type and file signature. A separate isolated file-detection test covers the missing-asset fallback.
 - The resume follow-up was initially kept local. V3 deployment preparation includes it in the release on GitHub; environment publication and Vercel production deployment remain separate actions.
+
+## Evidence-first homepage and case-study update
+
+- Preserved the role-focused hero, May 2027 UIC graduation, scoped proof points, and direct resume download.
+- Removed the interactive hero; featured evidence now follows the introduction. Condensed homepage experience and moved technical capabilities to About.
+- Added problem/build/result/evidence summaries, source-pinned charts, explicit local/deployment scope, an actual Airflow screenshot and original rerun/recovery outputs. Public artifacts were byte-compared with the pinned source files; hashes are in the content audit.
+- Local checks passed: lint, strict TypeScript, production build, 9 existing/updated Playwright tests across 11 routes and three widths, 3 configuration/evidence-consistency tests, formatting and whitespace checks.
+- Obsolete explorer interaction tests were replaced with proof-card/source checks; reduced-motion checks now target project cards. Other navigation, filtering, download, accessibility and no-JavaScript coverage remains.
+- Inspected desktop/mobile rendered pages, narrow 320px layout, the loaded optimized screenshot, and real output links. This validates the website presentation; no project experiments were rerun.

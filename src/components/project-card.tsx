@@ -1,51 +1,68 @@
 import Link from "next/link";
-import { ArrowUpRight, GitFork } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/content/projects";
+import { projectEvidence } from "@/content/evidence";
 import { ProjectVisual } from "./project-visual";
+import { EvidenceVisual } from "./evidence-visual";
 export function ProjectCard({ project: p }: { project: Project }) {
+  const proof = projectEvidence[p.slug];
   return (
-    <article className={`project-card project-${p.visual}`}>
-      <Link
-        href={`/projects/${p.slug}`}
-        className="project-visual-link"
-        aria-label={`Read ${p.title} case study`}
-      >
-        <ProjectVisual project={p} />
-      </Link>
+    <article className={`project-card evidence-card project-${p.visual}`}>
       <div className="card-body">
-        <div className="eyebrow">
-          <span>
-            {p.number} / {p.category}
-          </span>
-          <ArrowUpRight size={18} />
-        </div>
+        <p className="eyebrow">
+          {p.number} / {p.category}
+        </p>
         <h3>
           <Link href={`/projects/${p.slug}`}>{p.title}</Link>
         </h3>
-        <p className="card-concept">{p.shortTitle}</p>
-        <p>{p.description}</p>
-        <div className="tags">
-          {p.technologies.map((t) => (
-            <span key={t}>{t}</span>
-          ))}
-        </div>
+        {proof ? (
+          <>
+            <dl className="project-answers">
+              <div>
+                <dt>Problem</dt>
+                <dd>{proof.problem}</dd>
+              </div>
+              <div>
+                <dt>Built</dt>
+                <dd>{proof.built}</dd>
+              </div>
+              <div className="answer-result">
+                <dt>Result</dt>
+                <dd>{proof.result}</dd>
+              </div>
+            </dl>
+            <p className="validation-scope">{proof.scope}</p>
+          </>
+        ) : (
+          <p>{p.description}</p>
+        )}
         <div className="card-bottom">
           <div>
-            <strong>{p.metric}</strong>
-            <span>{p.metricLabel}</span>
+            <strong>{proof?.metric || p.metric}</strong>
+            <span>{proof?.metricLabel || p.metricLabel}</span>
           </div>
           <Link href={`/projects/${p.slug}`} className="text-link">
-            Read the study <ArrowUpRight size={16} />
+            Case study <ArrowUpRight size={16} />
           </Link>
         </div>
-        <a
-          className="repository-link"
-          href={p.github}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <GitFork size={14} /> Source repository <ArrowUpRight size={12} />
-        </a>
+        <div className="card-evidence-link">
+          <span>Evidence</span>
+          <a
+            href={proof?.sources[0]?.href || p.github}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {proof?.sources[0]?.label || "Source repository"}{" "}
+            <ArrowUpRight size={13} />
+          </a>
+        </div>
+      </div>
+      <div className="project-evidence-visual">
+        {proof?.chart ? (
+          <EvidenceVisual kind={proof.chart} />
+        ) : (
+          <ProjectVisual project={p} />
+        )}
       </div>
     </article>
   );

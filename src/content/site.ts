@@ -13,6 +13,16 @@ export const site = {
   education: "Bachelor of Science in Computer Science",
   minor: "Mathematics",
   graduation: "May 2027",
+  positioning: {
+    roles: ["Data Engineer", "ML Engineer"],
+    summary:
+      "Building reliable data pipelines and production-ready machine learning systems.",
+    proofPoints: [
+      { value: "76", label: "CI data-quality tests" },
+      { value: "12.5 ms", label: "local API p95 · 5 clients" },
+      { value: "2", label: "industry internships" },
+    ],
+  },
   educationDates: "August 2023 – May 2027",
   coursework: [
     "Machine Learning",
